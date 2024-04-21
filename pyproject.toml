@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "js-game"
+version = "0.1.0"
+description = ""
+authors = ["Jakub Śliwka <kubapplll@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mypy = "^1.9.0"
+flake8 = "^7.0.0"
+pylint = "^3.1.0"
+formatting = "^0.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+formatting = "python -m black . && python -m isort ."
+flake8 = "poetry run python -m flake8 project && echo All is ok"
+pylint = "pylint project"
+mypy = "python -m mypy --namespace-packages project"
